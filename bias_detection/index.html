@@ -3,28 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project 1</title>
-    <link rel="stylesheet" href="../styles.css">
+    <title>ML Project Overview</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            color: #333;
+        }
+        h2 {
+            color: #0056b3;
+            margin-bottom: 10px;
+        }
+        h3 {
+            color: #004085;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        strong {
+            color: #343a40;
+        }
+        .section-title {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    <h1>Custom Text Classification with Cohere and Machine Learning Models</h1>
+    
+    <h2>ML Project Overview</h2>
     <p>In this project, I developed a custom text classification pipeline leveraging advanced language models and traditional machine learning techniques. The primary goal was to classify text data into predefined categories using minimal labeled examples, demonstrating the ability to build a robust classifier with limited data.</p>
-    <p>**Data Gathering and Pre-processing**
-- **Data Source:** The dataset comprised text samples that were manually labeled into binary classes. The training data was sourced from CSV files, and Pandas was utilized for efficient data manipulation and preprocessing.
-- **Pre-processing:** Text data was preprocessed, ensuring it was appropriately structured for model input. This included handling missing values, encoding labels, and preparing the text data for embedding generation.</p>
-    <p>**Model Training and Testing**
-- **Cohere Classifier:** Initially, the project utilized Cohere's pre-trained language models for text classification. The model was fine-tuned with example-based few-shot learning to predict the class labels for unseen text.</p>
-    <p>- **Text Embeddings:** Cohere's embedding endpoint was used to transform text data into dense vector representations, capturing semantic information from the text.</p>
-    <p>- **SVM Classifier:** These embeddings were then fed into a Support Vector Machine (SVM) classifier from Scikit-learn. The model was trained with balanced class weights to handle any class imbalances in the dataset.</p>
-    <p>- **XGBoost Classifier:** Additionally, XGBoost, a powerful gradient boosting classifier, was trained on the embeddings to compare its performance with the SVM model.</p>
-    <p>- **Evaluation Metrics:** The models were evaluated based on accuracy, F1-score, precision, and recall, providing a comprehensive view of their performance. The predictions and metrics were then logged and exported for further analysis.</p>
-    <p><**Technologies and Tools**
-- **Programming Language:** Python
-- **Libraries/Tools:** Pandas for data manipulation, Scikit-learn for machine learning, XGBoost for gradient boosting, and Cohere for text embeddings and classification.
-- **Deployment:** The entire pipeline was built and tested within Google Colab, utilizing its environment for seamless development and model training./p>
+    
+    <h3>Data Gathering and Pre-processing</h3>
+    <ul>
+        <li><span class="section-title">Data Source:</span> The dataset comprised text samples that were manually labeled into binary classes. The training data was sourced from CSV files, and Pandas was utilized for efficient data manipulation and preprocessing.</li>
+        <li><span class="section-title">Pre-processing:</span> Text data was preprocessed, ensuring it was appropriately structured for model input. This included handling missing values, encoding labels, and preparing the text data for embedding generation.</li>
+    </ul>
+    
+    <h3>Model Training and Testing</h3>
+    <ul>
+        <li><span class="section-title">Cohere Classifier:</span> Initially, the project utilized Cohere's pre-trained language models for text classification. The model was fine-tuned with example-based few-shot learning to predict the class labels for unseen text.</li>
+        <li><span class="section-title">Text Embeddings:</span> Cohere's embedding endpoint was used to transform text data into dense vector representations, capturing semantic information from the text.</li>
+        <li><span class="section-title">SVM Classifier:</span> These embeddings were then fed into a Support Vector Machine (SVM) classifier from Scikit-learn. The model was trained with balanced class weights to handle any class imbalances in the dataset.</li>
+        <li><span class="section-title">XGBoost Classifier:</span> Additionally, XGBoost, a powerful gradient boosting classifier, was trained on the embeddings to compare its performance with the SVM model.</li>
+        <li><span class="section-title">Evaluation Metrics:</span> The models were evaluated based on accuracy, F1-score, precision, and recall, providing a comprehensive view of their performance. The predictions and metrics were then logged and exported for further analysis.</li>
+    </ul>
+    
+    <h3>Technologies and Tools</h3>
+    <ul>
+        <li><span class="section-title">Programming Language:</span> Python</li>
+        <li><span class="section-title">Libraries/Tools:</span> Pandas for data manipulation, Scikit-learn for machine learning, XGBoost for gradient boosting, and Cohere for text embeddings and classification.</li>
+        <li><span class="section-title">Deployment:</span> The entire pipeline was built and tested within Google Colab, utilizing its environment for seamless development and model training.</li>
+    </ul>
+
     <p>This project showcases my ability to integrate state-of-the-art language models with traditional machine learning techniques to build efficient and scalable text classification solutions. The use of multiple models and detailed evaluation highlights my proficiency in model comparison and selection, key skills in any data science project.</p>
 
+
     <!-- Link to datasets -->
+    
+
+
+
+
+
+
+
+
     <h2>Datasets</h2>
     <ul>
         <li><a href="property_sale_data.csv">Dataset 1 (CSV)</a></li>
