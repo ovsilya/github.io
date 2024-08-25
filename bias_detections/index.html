@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 1</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <h1>Project 1</h1>
+    <p>Description of the project.</p>
+
+    <!-- Link to datasets -->
+    <h2>Datasets</h2>
+    <ul>
+        <li><a href="property_sale_data.csv">Dataset 1 (CSV)</a></li>
+    </ul>
+
+    <!-- Display Python script -->
+    <h2>Code</h2>
+    <pre><code id="code-container"></code></pre>
+
+    <!-- Visual results -->
+    <h2>Results</h2>
+    <img src="Predictions_screenshot.png" alt="Result 1" width="600">
+    <img src="Fine-tuning_scores_UI.png" alt="Result 2" width="600">
+
+    <!-- Include syntax highlighting script -->
+    <script src="../highlight.js"></script>
+    <script>
+        fetch('cohere_embed_binary.py')
+            .then(response => response.text())
+            .then(text => {
+                document.getElementById('code-container').textContent = text;
+                hljs.highlightAll();
+            });
+    </script>
+</body>
+
+</html>
+
