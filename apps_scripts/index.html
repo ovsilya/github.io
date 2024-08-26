@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML Project Overview</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            color: #333;
+        }
+        h2 {
+            color: #0056b3;
+            margin-bottom: 10px;
+        }
+        h3 {
+            color: #004085;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        strong {
+            color: #343a40;
+        }
+        .section-title {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    
+    <h2>Project Overview</h2>
+<p>This Apps Script project automates the process of importing and processing data from a CSV file into a Google Sheets document. The project is designed to handle data from a Smartsheet and perform various operations, including filtering, aggregating, and inserting data into specific ranges within the Google Sheets. The project is particularly useful for tracking budgets and time allocation for team members, making it an ideal tool for project management and financial tracking.</p>
+
+<h3>Key Features</h3>
+<ul>
+    <li><span class="section-title">CSV Data Import:</span> The script imports data from a CSV file stored in Google Drive into a Google Sheets document. The data is filtered to include only specific columns and then inserted into a designated sheet.</li>
+    <li><span class="section-title">Dynamic Querying and Data Aggregation:</span> The script uses the AlaSQL library to query the imported data, aggregating the hours incurred by team members on a weekly basis. This data is then inserted into a specified sheet, categorized by team member names and dates.</li>
+    <li><span class="section-title">Name and Bill Rate Management:</span> The script extracts unique team member names and bill rates from the imported CSV data. These are then inserted into predefined ranges in the "BudgetTracker" and "Settings" sheets. This ensures that the Google Sheets document always reflects the most up-to-date information on team members and their associated costs.</li>
+    <li><span class="section-title">Automated Data Insertion:</span> The script inserts aggregated data (such as hours worked) into the Google Sheets document. It maps this data to specific rows and columns based on the team member names and dates, ensuring that the spreadsheet is populated correctly and efficiently.</li>
+    <li><span class="section-title">Data Formatting:</span> Dates are formatted into ISO format, ensuring consistency in data representation across the spreadsheet. This is crucial for accurate data comparison and aggregation.</li>
+    <li><span class="section-title">User Properties Storage:</span> The script stores the CSV file ID using Google Apps Script's `PropertiesService`, allowing the file to be easily accessed and reused in future script executions without needing to manually input the file ID each time.</li>
+    <li><span class="section-title">Customization and Flexibility:</span> The script is designed to be flexible, allowing for customization in terms of the ranges and columns that are updated. It is capable of handling different configurations and can be adapted to various project management and financial tracking needs.</li>
+</ul>
+
+<h3>Technical Summary</h3>
+<ul>
+    <li><span class="section-title">Languages and Technologies:</span> JavaScript, Google Apps Script, AlaSQL Library, Google Sheets, Google Drive.</li>
+    <li><span class="section-title">Operations:</span> Data import, transformation, aggregation, and insertion into Google Sheets.</li>
+    <li><span class="section-title">Project Management:</span> Ideal for tracking team member hours, budgeting, and financial data management.</li>
+    <li><span class="section-title">Automation:</span> Reduces manual data entry and ensures data consistency and accuracy.</li>
+</ul>
+
+<h3>Potential Use Cases</h3>
+<ul>
+    <li><span class="section-title">Project Management:</span> Automatically track and update team member hours and associated costs in a project budget tracker.</li>
+    <li><span class="section-title">Financial Reporting:</span> Aggregate and present financial data, such as billable hours, in a structured format.</li>
+    <li><span class="section-title">Data Analysis:</span> Quickly process and analyze CSV data related to project budgets and time management.</li>
+</ul>
+
+<p>This project demonstrates your ability to automate complex data workflows, integrate third-party libraries (like AlaSQL), and create customized solutions for project management and financial tracking within Google Sheets.</p>
+
+
+    <!-- Display Python script -->
+    <h2>Code</h2>
+    <pre><code id="code-container"></code></pre>
+
+    <!-- Visual results -->
+    <h2>Results</h2>
+    <img src="combined.png" alt="Result 1" width="600">
+
+    <!-- Include syntax highlighting script -->
+    <script src="../highlight.js"></script>
+    <script>
+        fetch('insertData.gs')
+            .then(response => response.text())
+            .then(text => {
+                document.getElementById('code-container').textContent = text;
+                hljs.highlightAll();
+            });
+    </script>
+</body>
+
+</html>
+
