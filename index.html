@@ -4,15 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>My Portfolio</h1>
-    <ul>
-        <li><a href="bias_detection/index.html">Bias Detection</a></li>
-        <li><a href="dbt_projects/index.html">DBT project</a></li>
-        <li><a href="receipt_scanner/index.html">Receipt Scanner</a></li>
-        <li><a href="apps_scripts/index.html">Sheets Automation</a></li>
-    </ul>
+    <header>
+        <div class="container">
+            <h1>My Data Science Portfolio</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="portfolio-links">
+            <ul>
+                <li><a href="bias_detection/index.html"><i class="icon">&#x1F4C8;</i> Bias Detection in Text using Cohere</a></li>
+                <li><a href="apps_scripts/index.html"><i class="icon">&#x1F4C4;</i> ETL Pipeline for Data Manipulation in Google Sheets</a></li>
+                <li><a href="receipt_scanner/index.html"><i class="icon">&#x1F4F7;</i> Smart Receipt Scanner using GenAI and Object Detection</a></li>
+                <li><a href="dbt_projects/index.html"><i class="icon">&#x1F4DA;</i> DBT Project</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 My Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
