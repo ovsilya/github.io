@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receipt Scanner</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            color: #333;
+        }
+        h2 {
+            color: #0056b3;
+            margin-bottom: 10px;
+        }
+        h3 {
+            color: #004085;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        strong {
+            color: #343a40;
+        }
+        .section-title {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    
+<h2>Project Overview: Intelligent Document Processing and Analysis Pipeline</h2>
+<p>This project exemplifies a highly automated and scalable pipeline designed for processing, analyzing, and deriving insights from document data using Google Cloud's serverless infrastructure. The system integrates various Google Cloud Functions and utilizes OpenAI's GPT-4 to perform complex tasks such as entity extraction, calorie estimation, budget policy validation, generative AI-based image creation, and restaurant rating analysis. The final outputs are stored in BigQuery, providing a centralized location for advanced querying and reporting.</p>
+
+<h3>Data Preprocessing and Extraction</h3>
+<ul>
+    <li><span class="section-title">Event Logging and Data Validation:</span> The system logs the event and checks for the presence of a "data" key in the event payload, ensuring only valid events trigger the workflow.</li>
+    <li><span class="section-title">Document AI Processing:</span> Using Google's Document AI (DocAI) API, a Cloud Function processes the document to extract text and relevant entities. This is done by retrieving the document from the storage bucket and sending it through a custom function that integrates with the DocAI API. The extracted entities include essential information like addresses, dates, items, names, prices, and totals.</li>
+</ul>
+
+<h3>Specialized Data Processing and API Integration</h3>
+<ul>
+    <li><span class="section-title">Detailed Data Extraction:</span> The <code>process_extraction</code> function processes the document output stored in Google Cloud Storage. It retrieves the JSON files containing the parsed document data and converts them into structured entities. The function extracts key entities such as addresses, dates, items, names, prices, and totals. These entities are then aggregated into a dictionary format, which is later used for further analysis and storage. This step is critical for transforming unstructured document data into a structured format that can be easily queried and analyzed.</li>
+    <li><span class="section-title">Yelp Rating Analysis:</span> The <code>yelp_rating</code> function utilizes OpenAI’s GPT-4 model to generate a list of five restaurants similar to the one identified in the document, based on its name and address. The recommendations include the restaurant name, address, rating, cuisine type, and distance from the original location, all within a 3km radius. This function is particularly useful for identifying alternatives in a given area, leveraging Yelp's rating system.</li>
+    <li><span class="section-title">Time Parsing and Calorie Estimation:</span>
+        <ul>
+            <li><span class="section-title">Time Parsing:</span> A Cloud Function analyzes temporal data, identifying meal times such as breakfast, lunch, or dinner.</li>
+            <li><span class="section-title">Calorie Estimation:</span> The <code>calories_estimates</code> function processes the items listed on a restaurant receipt to estimate their caloric content. Using GPT-4, it generates a JSON object with estimated calories for each item, as well as a total calorie count. This is useful for nutritional analysis and dietary tracking.</li>
+        </ul>
+    </li>
+    <li><span class="section-title">Budget Policy Validation:</span> The <code>budget_policy</code> function retrieves a budget policy document from a Google Cloud Storage bucket. This document defines meal expense limits based on employee seniority levels. The function uses GPT-4 to extract budget values from the policy document and compares the total meal cost from the receipt with these budget limits, taking into account the meal type (breakfast, lunch, dinner) and whether alcohol was included. The function then returns a message indicating whether the meal is within the company's budget policy.</li>
+</ul>
+
+<h3>Generative AI and Image Creation</h3>
+<ul>
+    <li><span class="section-title">Prompt-based Image Generation:</span> The <code>prompt_image</code> function generates a visual prompt description based on the items listed in the receipt. The description is created using GPT-4, which provides a succinct, one-sentence description of the ordered items, aiding in visualizing the meal or generating related images.</li>
+    <li><span class="section-title">Generative AI for Data Enrichment:</span> Another Cloud Function (<code>generative_ai</code>) retrieves specific rows from a BigQuery table containing the extracted entities. It then uses OpenAI’s API to enrich this data, creating structured outputs that can be used for further analysis or generating summary reports.</li>
+</ul>
+
+<h3>Data Storage, Aggregation, and Output</h3>
+<ul>
+    <li><span class="section-title">Data Aggregation:</span> The workflow aggregates the results from various processing steps into a structured output object, combining information such as extracted entities, calorie estimates, budget policy validation results, and generated image prompts.</li>
+    <li><span class="section-title">BigQuery Integration:</span> The <code>write_to_bq</code> function handles the storage of aggregated data into a BigQuery table. The function carefully ensures that only schema-compliant data is stored, enabling efficient querying and analysis later on.</li>
+    <li><span class="section-title">Cleanup and Archival:</span> Intermediate files are deleted from the storage bucket after processing to maintain a clean environment. Additionally, the original input files are archived in a separate storage bucket for record-keeping and potential future use.</li>
+</ul>
+
+<h3>Error Handling and Logging</h3>
+<ul>
+    <li><span class="section-title">Extensive Logging:</span> Each key event and decision in the workflow is logged, providing an audit trail and making debugging easier.</li>
+    <li><span class="section-title">Graceful Error Handling:</span> The system is designed to handle errors gracefully, ensuring that if any step fails, appropriate error messages are logged and the workflow exits safely without impacting other processes.</li>
+</ul>
+
+<p>This project highlights my expertise in designing and implementing complex, serverless workflows on Google Cloud. By integrating various APIs, leveraging generative AI, and ensuring efficient data processing and storage, the workflow provides a scalable, maintainable, and highly effective solution for document processing and analysis. The ability to handle parallel tasks, validate expenses against budget policies, and produce enriched outputs makes this system a versatile tool for various business applications, especially in contexts requiring detailed document analysis and data enrichment.</p>
+
+
+    <h2>Data</h2>
+    <img src="scan_analysis.jpeg" alt="Result 1" width="1200">
+
+
+    <!-- Display Python script -->
+    <h2>Code</h2>
+    <pre><code id="code-container"></code></pre>
+
+    <!-- Visual results -->
+    <h2>Results</h2>
+    <img src="docai1.gif" alt="Result 1" width="1200">
+    <img src="docai2.gif" alt="Result 1" width="1200">
+    <img src="docai3.gif" alt="Result 1" width="1200">
+    <img src="docai4.gif" alt="Result 1" width="1200">
+
+    <!-- Include syntax highlighting script -->
+    <script src="../highlight.js"></script>
+    <script>
+        fetch('insertData.gs')
+            .then(response => response.text())
+            .then(text => {
+                document.getElementById('code-container').textContent = text;
+                hljs.highlightAll();
+            });
+    </script>
+</body>
+
+</html>
+
